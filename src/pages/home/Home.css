@@ -65,8 +65,34 @@
   margin-bottom: 10px;
 }
 
+.cart-icon {
+  position: fixed;
+  z-index: 999;
+  width: 30px;
+  height: 30px;
+}
+
 @media screen and (max-width: 767px) {
   .product-list {
     grid-template-columns: 1fr;
+  }
+
+  .cart-icon {
+    top: 10px;
+    right: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .cart-icon {
+    top: 20px;
+    right: 20px;
+  }
+}
+
+@media (min-width: 992px) {
+  .cart-icon {
+    top: 30px;
+    right: 30px;
   }
 }
