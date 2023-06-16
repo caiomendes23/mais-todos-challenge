@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Home from './pages/home';
-import ProductForm from './pages/productForm';
+import Product from './pages/product';
 import Cart from './pages/cart';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <Router>
       <Routes>
         <Route index path='/' element={<Home />} />
-        <Route path='/products' element={<ProductForm />} />
+        <Route path='/product/:productId' element={<Product />} />
         <Route path='/cart' element={<Cart />} />
       </Routes>
     </Router>

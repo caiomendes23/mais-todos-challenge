@@ -1,0 +1,151 @@
+.product-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.product-image img {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 20px;
+}
+
+.product-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.product-price {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.product-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-button,
+.delete-button,
+.back-button {
+  background-color: #f0c14b;
+  color: #111;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button:hover,
+.delete-button:hover,
+.back-button:hover {
+  background-color: #f8d862;
+}
+
+.back-link {
+  color: #0066c0;
+  margin-top: 20px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: #0050a2;
+}
+
+.product-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.field-label {
+  font-weight: bold;
+}
+
+.field-input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 200%;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+}
+
+button[type="submit"] {
+  background-color: #f0c14b;
+  color: #111;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #f8d862;
+}
+
+@media (max-width: 768px) {
+  .product-image img {
+    max-width: 100%;
+  }
+
+  .product-title {
+    font-size: 20px;
+  }
+
+  .product-price {
+    font-size: 16px;
+  }
+
+  .edit-button,
+  .delete-button,
+  .back-button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .back-link {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-title {
+    font-size: 18px;
+  }
+
+  .product-price {
+    font-size: 14px;
+  }
+
+  .edit-button,
+  .delete-button,
+  .back-button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .back-link {
+    font-size: 12px;
+  }
+}
