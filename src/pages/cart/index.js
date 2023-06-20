@@ -25,7 +25,7 @@ function CartPage() {
 
   const updateTotalPrice = () => {
     const newTotalPrice = cartItems.reduce((total, item) => {
-      return total + item.price * item.quantity;
+      return total + item.price * (item.quantity || 1);
     }, 0);
 
     useCart.setState({ totalPrice: newTotalPrice });
@@ -73,7 +73,7 @@ function CartPage() {
                 >
                   Remove
                 </button>
-                <p className="cart-item-subtotal">Subtotal: {formatCurrency(item.price * item.quantity)}</p>
+                <p className="cart-item-subtotal">Subtotal: {formatCurrency(item.price * (item.quantity || 1))}</p>
               </div>
             </div>
           ))}
