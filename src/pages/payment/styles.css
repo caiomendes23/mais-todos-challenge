@@ -31,6 +31,22 @@
   cursor: pointer;
 }
 
+.payment-total {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.payment-total span:first-child {
+  margin-right: 10px;
+}
+
+.payment-total span:last-child {
+  font-size: 18px;
+}
+
 @media screen and (max-width: 768px) {
   .payment-container {
     max-width: 100%;

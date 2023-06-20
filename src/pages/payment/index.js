@@ -1,6 +1,7 @@
 import React from 'react';
 import { CardElement, useStripe, useElements, Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
+import { formatCurrency } from '../../utils/format';
 import useCart from '../../store/cart';
 import './styles.css';
 
@@ -66,7 +67,10 @@ const Payment = () => {
             Payment with Card
           </button>
         </div>
-
+        <div className="payment-total">
+          <span>Total:</span>
+          <span>{formatCurrency(totalPrice)}</span>
+        </div>
       </form>
     </div>
   );
