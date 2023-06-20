@@ -5,7 +5,7 @@ import useCart from '../../store/cart';
 import { formatCurrency } from '../../utils/format';
 import './styles.css'
 
-function CartPage() {
+function Cart() {
   const navigate = useNavigate();
   const cartItems = useCart((state) => state.cartItems);
   const totalPrice = useCart((state) => state.totalPrice);
@@ -24,11 +24,13 @@ function CartPage() {
   };
 
   const updateTotalPrice = () => {
-    const newTotalPrice = cartItems.reduce((total, item) => {
-      return total + item.price * (item.quantity || 1);
-    }, 0);
+    if (Array.isArray(cartItems)) {
+      const newTotalPrice = cartItems?.reduce((total, item) => {
+        return total + item?.price * (item?.quantity || 1);
+      }, 0);
 
-    useCart.setState({ totalPrice: newTotalPrice });
+      useCart.setState({ totalPrice: newTotalPrice });
+    }
   };
 
   const handleRemoveItem = (itemId) => {
@@ -51,29 +53,29 @@ function CartPage() {
       {cartItems.length > 0 ? (
         <div>
           {cartItems.map((item) => (
-            <div key={item.id} className="cart-item">
-              <img src={item.image} alt={item.title} className="cart-item-image" />
+            <div key={item?.id} className="cart-item">
+              <img src={item?.image} alt={item?.title} className="cart-item-image" />
               <div className="cart-item-details">
-                <h3 className="cart-item-title">{item.title}</h3>
-                <p className="cart-item-price">Price: {formatCurrency(item.price)}</p>
+                <h3 className="cart-item-title">{item?.title}</h3>
+                <p className="cart-item-price">Price: {formatCurrency(item?.price)}</p>
                 <div className="cart-item-quantity">
                   <span className="cart-item-quantity-label">Quantity:</span>
                   <input
                     type="number"
                     min="1"
                     defaultValue="1"
-                    value={item.quantity}
+                    value={item?.quantity}
                     className="cart-item-quantity-input"
-                    onChange={(event) => handleQuantityChange(item.id, event)}
+                    onChange={(event) => handleQuantityChange(item?.id, event)}
                   />
                 </div>
                 <button
                   className="cart-item-remove"
-                  onClick={() => handleRemoveItem(item.id)}
+                  onClick={() => handleRemoveItem(item?.id)}
                 >
                   Remove
                 </button>
-                <p className="cart-item-subtotal">Subtotal: {formatCurrency(item.price * (item.quantity || 1))}</p>
+                <p className="cart-item-subtotal">Subtotal: {formatCurrency(item?.price * (item?.quantity || 1))}</p>
               </div>
             </div>
           ))}
@@ -94,5 +96,5 @@ function CartPage() {
   );
 }
 
-export default CartPage;
+export default Cart;
 
