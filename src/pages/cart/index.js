@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import useCart from '../../store/cart';
 import { formatCurrency } from '../../utils/format';
 import './styles.css'
 
 function CartPage() {
+  const navigate = useNavigate();
   const cartItems = useCart((state) => state.cartItems);
   const totalPrice = useCart((state) => state.totalPrice);
 
@@ -81,7 +83,7 @@ function CartPage() {
           </div>
 
           <div className="cart-actions">
-            <button className="cart-action-button">Checkout</button>
+            <button className="cart-action-button" onClick={() => navigate('/payment')}>Checkout</button>
           </div>
         </div>
       ) : (
