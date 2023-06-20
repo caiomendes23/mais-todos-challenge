@@ -5,7 +5,7 @@ import { formatCurrency } from '../../utils/format';
 import useCart from '../../store/cart';
 import './styles.css';
 
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY, {locale: 'en'});
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY, { locale: 'en' });
 
 const Payment = () => {
   const totalPrice = useCart((state) => state.totalPrice);
@@ -26,7 +26,7 @@ const Payment = () => {
       console.log('Erro ao criar fonte de pagamento:', error);
     } else {
       try {
-        const response = await fetch('/api/process-payment', {
+        await fetch('/api/process-payment', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
