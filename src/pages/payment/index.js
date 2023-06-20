@@ -5,7 +5,7 @@ import { formatCurrency } from '../../utils/format';
 import useCart from '../../store/cart';
 import './styles.css';
 
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY, {locale: 'en'});
 
 const Payment = () => {
   const totalPrice = useCart((state) => state.totalPrice);
@@ -45,7 +45,7 @@ const Payment = () => {
 
   return (
     <div className="payment-container">
-      <h1 className="payment-title">Página de Pagamento</h1>
+      <h1 className="payment-title">Payment</h1>
       <form className="payment-form" onSubmit={handlePaymentSubmit}>
         <div className="payment-card-details">
           <CardElement className="payment-card" options={{
